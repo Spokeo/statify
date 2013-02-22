@@ -25,6 +25,14 @@ Or install it yourself as:
 
 TODO: Write usage instructions here
 
+
+### Supported categories
+
+- garbage_collection
+- controller
+- cache
+- sql 
+
 ## Contributing
 
 1. Fork it

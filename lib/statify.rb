@@ -5,7 +5,7 @@ require 'statify/railtie'
 #  config.statsd = StatD.new...
 # end
 # Statify.statsd = 
-module Statify  
+module Statify
   def self.configure
     yield self
   end
