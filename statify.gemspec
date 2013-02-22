@@ -7,13 +7,16 @@ Gem::Specification.new do |gem|
   gem.name          = "statify"
   gem.version       = Statify::VERSION
   gem.authors       = ["Austin Fonacier"]
-  gem.email         = ["austinrf@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.email         = ["austin@spokeo.com"]
+  gem.description   = "Pop this gem in your rails >= 3 application.  This gem will utilize statsd and easily track basic performance stats for your application."
+  gem.summary       = "Pop this gem in your rails >= 3 application.  This gem will utilize statsd and easily track basic performance stats for your application."
+  gem.homepage      = "http://www.spokeo.com"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ["lib"]
+
+  gem.add_development_dependency 'rake'
+  gem.add_development_dependency 'rspec'
 end

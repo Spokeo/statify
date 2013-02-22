@@ -1,6 +1,11 @@
 # Statify
 
-TODO: Write a gem description
+Pop this gem in your rails >= 3 application.  This gem will utilize a statsd instance and easily track basic performance stats for your application.  This gem can track the following:
+
+- Performance stats broken down by controller and action and further broken down by view rendering times and SQL duration times.
+- SQL calls durations
+- Ruby garbage collection stats
+- Cache hit and miss rates
 
 ## Installation
 
