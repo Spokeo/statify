@@ -56,7 +56,7 @@ module DummyApp
     # Enable the asset pipeline
     config.assets.enabled = false
 
-    config.statify.categories = [:sql, :garbage_collection]
+    config.statify.categories = [:sql, :garbage_collection, :cache]
     config.statify.statsd = Statsd.new('127.0.0.1', 8125)
 
     # Version of your assets, change this if you want to expire all your assets

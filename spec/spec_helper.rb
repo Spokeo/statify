@@ -15,20 +15,10 @@ RSpec.configure do |config|
   # config.run_all_when_everything_filtered = true
   # config.filter_run :focus
   config.infer_base_class_for_anonymous_controllers = false
-#   config.before :suite do
-#     # ActiveRecord::Migration.verbose = true
-#     # ActiveRecord::Base.logger = Logger.new(nil)
 
-#     # ActiveRecord::Migrator.migrate(File.expand_path("spec/dummy_app/db/migrate/20130222234253_create_dummy_models.rb"))
-
-# # class ActiveSupport::TestCase
-# #   self.use_transactional_fixtures = true
-# #   self.use_instantiated_fixtures  = false
-# # end
-
-#     # We want to stub all instances of statsd
-#     # Statsd.any_instance.stub(:count => true, :timing => true, :increment => true)
-#   end
+  config.before :suite do
+    # Statsd.any_instance.stub(:count => true, :timing => true, :increment => true)
+  end
   # Run specs in random order to surface order dependencies. If you find an
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
