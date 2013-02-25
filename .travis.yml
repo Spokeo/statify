@@ -1,0 +1,7 @@
+before_install:
+  - gem install bundler
+script: "bundle && bundle exec rake db:migrate && bundle exec rake"
+language: ruby
+rvm:
+  - 1.9.3
+  - 1.8.7
