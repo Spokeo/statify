@@ -4,7 +4,7 @@ Pop this gem in your rails >= 3 application.  This gem will utilize a statsd ins
 
 - Performance stats broken down by controller and action and further broken down by view rendering times and SQL duration times.
 - SQL calls durations
-- Ruby garbage collection stats
+- Ruby garbage collection stats (this will run after every controller response)
 - Cache hit and miss rates
 
 ## Installation
@@ -21,9 +21,18 @@ Or install it yourself as:
 
     $ gem install statify
 
+## Pre-Requisities
+
+You will need to have a statsd instance running somewhere that you can connect to.  If you want to graph what is coming out of statsd there are different front ends to use with statsd.  One of them is Graphite: http://graphite.wikidot.com/
+
 ## Usage
 
-TODO: Write usage instructions here
+In your Rails App put these following lines in your config/application.rb:
+
+    config.statify.categories = [:sql, :garbage_collection, :cache, :controller]
+    config.statify.statsd = Statsd.new('127.0.0.1', 8125)
+
+Obviously put in the address of your own statsD ip address and port into the statsd.new call.  The categories are opt-in, so put in what you want to use.
 
 
 ### Supported categories
