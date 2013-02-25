@@ -16,8 +16,12 @@ RSpec.configure do |config|
   # config.filter_run :focus
   config.infer_base_class_for_anonymous_controllers = false
 
-  config.before :suite do
-    # Statsd.any_instance.stub(:count => true, :timing => true, :increment => true)
+  config.before(:each) do
+    Rails.cache.clear
+  end
+
+  config.after(:each) do
+    Rails.cache.clear
   end
   # Run specs in random order to surface order dependencies. If you find an
   # order dependency and want to debug it, you can fix the order by providing

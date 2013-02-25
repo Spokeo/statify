@@ -47,7 +47,7 @@ module Statify
         ActiveSupport::Notifications.subscribe "process_action.action_controller" do |*args|      
           event = ActiveSupport::Notifications::Event.new(*args)
           
-          if Statify.categories.include?[:garbage_collection]
+          if Statify.categories.include?(:garbage_collection)
             # Let's log the GC
             gc_stats = GC::stat 
             @@statsd.count('gc_count', gc_stats[:count])
@@ -59,7 +59,7 @@ module Statify
             @@statsd.count('gc_heap_final_num', gc_stats[:heap_live_num])
           end
 
-          if Statify.categories.include?[:controller]
+          if Statify.categories.include?(:controller)
             # Track overall, db and view durations
             @@statsd.timing "overall_duration|#{event.payload[:controller]}/#{event.payload[:action]}", event.duration
             @@statsd.timing "db_runtime|#{event.payload[:controller]}/#{event.payload[:action]}", event.payload[:db_runtime]
