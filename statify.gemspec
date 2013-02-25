@@ -22,4 +22,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'sqlite3'
   gem.add_development_dependency 'rails'
   gem.add_development_dependency 'statsd'
+
+  gem.add_dependency 'statsd'
+  gem.add_dependency 'statsd-ruby'
 end
