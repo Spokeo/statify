@@ -2,11 +2,11 @@
 
 [![Build Status](https://travis-ci.org/Spokeo/statify.png?branch=master)](https://travis-ci.org/Spokeo/statify)
 
-Pop this gem in your rails >= 3 application.  This gem will utilize a statsd instance and easily track basic performance stats for your application.  This gem can track the following:
+Pop this gem in your rails >= 3 application.  Simply give this gem the location of your statsd instance and it can seamlessly track the following:
 
-- Performance stats broken down by controller and action and further broken down by view rendering times and SQL duration times.
-- SQL calls durations
-- Ruby garbage collection stats (this will run after every controller response)
+- Performance stats broken down by controller and action and further broken down by view, database, and overall runtimes
+- Overall SQL calls durations
+- Ruby garbage collection stats (this will run after every controller response cycle)
 - Cache hit and miss rates
 
 ## Installation
@@ -27,6 +27,8 @@ Or install it yourself as:
 
 You will need to have a statsd instance running somewhere that you can connect to.  If you want to graph what is coming out of statsd there are different front ends to use with statsd.  One of them is Graphite: http://graphite.wikidot.com/
 
+This gem is only tested on ruby-1.9.3.  YMMV on any ruby version prior to ruby-1.9.3.
+
 ## Usage
 
 In your Rails App put these following lines in your config/application.rb:
@@ -36,10 +38,12 @@ In your Rails App put these following lines in your config/application.rb:
 
 Obviously put in the address of your own statsD ip address and port into the statsd.new call.  The categories are opt-in, so put in what you want to use.
 
+Special note on garbage collection: It will not collect stats for ruby-1.8.7
+
 
 ### Supported categories
 
-- garbage_collection
+- garbage_collection 
 - controller
 - cache
 - sql 
