@@ -22,12 +22,20 @@ module Statify
 
   def self.categories=(categories)
     @@categories = categories
+
+    # If you're running ruby-1.8.7 and your trying to get GC stats
+    if @@categories.include?(:garbage_collection)
+      if RUBY_VERSION < '1.9'
+        # Fail and tell the user to remove the GC stats
+        fail "The GC stats don't work in Ruby 1.8.7.  Please remove the :grabage_collection from the categories"
+        @@stats.delete(:grabage_collection)
+      end
+    end
   end
 
   def self.categories
     @@categories
   end
-
 
   def self.subscribe
     if Statify.categories.include?(:sql)
