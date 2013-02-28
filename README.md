@@ -27,8 +27,6 @@ Or install it yourself as:
 
 You will need to have a statsd instance running somewhere that you can connect to.  If you want to graph what is coming out of statsd there are different front ends to use with statsd.  One of them is Graphite: http://graphite.wikidot.com/
 
-This gem is only tested on ruby-1.9.3.  YMMV on any ruby version prior to ruby-1.9.3.
-
 ## Usage
 
 In your Rails App put these following lines in your config/application.rb:
@@ -38,7 +36,11 @@ In your Rails App put these following lines in your config/application.rb:
 
 Obviously put in the address of your own statsD ip address and port into the statsd.new call.  The categories are opt-in, so put in what you want to use.
 
-Special note on garbage collection: It will not collect stats for ruby-1.8.7
+### Ruby Notes
+
+Ruby 1.8.7: 1.8.7 has a different call for GC stats that I haven't looked into it yet.  You can install this gem on your 1.8.7 codebase for now just omit the garbage_collection category.
+
+
 
 
 ### Supported categories
