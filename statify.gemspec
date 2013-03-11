@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["austin@spokeo.com"]
   gem.description   = "Pop this gem in your rails >= 3 application.  This gem will utilize statsd and easily track basic performance stats for your application."
   gem.summary       = "Pop this gem in your rails >= 3 application.  This gem will utilize statsd and easily track basic performance stats for your application."
-  gem.homepage      = "http://www.spokeo.com"
+  gem.homepage      = "https://github.com/spokeo/statify"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
