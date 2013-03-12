@@ -1,6 +1,9 @@
 === Changelog
 
-=== 0.0.2
+=== 0.1.1
+- People are having problems saying that statsd isn't a dependency.  So I added it to the Gemfile (Issue #1)
+
+=== 0.1.0
 - Adding statsd and statsd-ruby as actual dependencies
 - Adding changelog
 
