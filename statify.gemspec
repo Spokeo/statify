@@ -23,6 +23,5 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rails'
   gem.add_development_dependency 'statsd'
 
-  gem.add_dependency 'statsd', '~> 0.5.4'
   gem.add_dependency 'statsd-ruby', '~> 1.2.0'
 end
