@@ -20,7 +20,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'sqlite3'
-  gem.add_development_dependency 'rails', '~> 3.0.0'
-
+  
+  gem.add_dependency 'rails', '>= 3.0.0'
   gem.add_dependency 'statsd-ruby', '~> 1.2.0'
 end

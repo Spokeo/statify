@@ -1,5 +1,6 @@
 require 'statify/version'
 require 'statify/railtie'
+require 'statsd'
 
 # Statify.configure do |config|
 #  config.statsd = StatD.new...

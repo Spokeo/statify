@@ -1,5 +1,8 @@
 === Changelog
 
+=== 0.1.3
+- Finally got the dependencies working
+
 === 0.1.1
 - People are having problems saying that statsd isn't a dependency.  So I added it to the Gemfile (Issue #1)
 
