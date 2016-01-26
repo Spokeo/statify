@@ -53,16 +53,16 @@ module Statify
 
     if Statify.categories.include?(:garbage_collection) || Statify.categories.include?(:controller)
       # This should give us reports on average response times by controller and action
-      ActiveSupport::Notifications.subscribe "process_action.action_controller" do |*args|      
+      ActiveSupport::Notifications.subscribe "process_action.action_controller" do |*args|
         event = ActiveSupport::Notifications::Event.new(*args)
-        
+
         if Statify.categories.include?(:garbage_collection)
           # Let's log the GC
-          gc_stats = GC::stat 
+          gc_stats = GC::stat
           @@statsd.count('gc_count', gc_stats[:count])
           @@statsd.count('gc_heap_used', gc_stats[:heap_used])
-          @@statsd.count('gc_heap_length', gc_stats[:heap_length])
-          @@statsd.count('gc_heap_increment', gc_stats[:heap_increment])
+          @@statsd.count('gc_heap_length', gc_stats[:heap_sorted_length])
+          @@statsd.count('gc_heap_increment', gc_stats[:heap_allocatable_pages])
           @@statsd.count('gc_heap_live_num', gc_stats[:heap_live_num])
           @@statsd.count('gc_heap_free_num', gc_stats[:heap_live_num])
           @@statsd.count('gc_heap_final_num', gc_stats[:heap_live_num])
